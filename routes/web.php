@@ -11,8 +11,9 @@
 |
 */
 Route::get('/', function(){
-    return redirect('home');
+    return redirect('Home');
 });
 
-Route::get('home/{id?}', 'HomeController@index');
+Route::get('Home/{id?}', 'HomeController@index');
 
+Route::get('Admin', 'AdminController@index');
