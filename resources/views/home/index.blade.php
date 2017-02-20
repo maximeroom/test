@@ -13,7 +13,7 @@
     Click on the product you prefer.
 </h2>
 <p>
-    {{ $products }}
+    {{ var_dump($products) }}
 </p>
 </body>
 </html>
