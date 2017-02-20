@@ -8,18 +8,18 @@ class HomeController extends Controller
 {
     public function index($id = null)
     {
+        $products="";
         if($id==null){
-            $products = $this->getJsonFromUrl("https://api.bol.com/catalog/v4/search/?q=laptop&offset=0&limit=2&dataoutput=products?format=json");
+            $products = $this->getJsonFromUrl("https://api.bol.com/catalog/v4/search/?q=laptop&offset=0&limit=2&dataoutput=products&format=json");
         }else{
             $products = $this->getJsonFromUrl("https://api.bol.com/catalog/v4/recommendations/".$id."/?format=json&limit=2");
         }
         $recproducts=$this->getRecommendedProducts($products->products[0]->id);
-
-        return view('home.index',["products" => $products, "recproducts" => $recproducts]);
+        return view('home.index',["products" => $products->products, "recproducts" => $recproducts->products]);
     }
 
     private function getRecommendedProducts($productid){
-        $url="https://api.bol.com/catalog/v4/recommendations/".$productid."/?format=json&limit=2";
+        $url="https://api.bol.com/catalog/v4/recommendations/".$productid."/?format=json&limit=4";
         return $this->getJsonFromUrl($url);
     }
 
