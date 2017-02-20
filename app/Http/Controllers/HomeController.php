@@ -3,15 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Click;
 
 class HomeController extends Controller
 {
     public function index($id = null)
     {
-        $products="";
         if($id==null){
             $products = $this->getJsonFromUrl("https://api.bol.com/catalog/v4/search/?q=laptop&offset=0&limit=2&dataoutput=products&format=json");
         }else{
+            //save click
+            //save click
+            $click = new Click();
+            $click->productid=$id;
+            $click->save();
+
             $products = $this->getJsonFromUrl("https://api.bol.com/catalog/v4/recommendations/".$id."/?format=json&limit=2");
         }
         $recproducts=$this->getRecommendedProducts($products->products[0]->id);
