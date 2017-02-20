@@ -26,7 +26,12 @@
 </div>
 <div class="sidepanel">
     <h1>Related products</h1>
-
+    @foreach($recproducts as $recproduct)
+        <div class="miniproductcontainer">
+            <h3>{{ $recproduct->title }}</h3>
+            <img src="{{ $recproduct->images[4]->url }}" width="280px">
+        </div>
+    @endforeach
 </div>
 
 

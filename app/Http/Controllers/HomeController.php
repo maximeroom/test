@@ -9,15 +9,22 @@ class HomeController extends Controller
     public function index($id = null)
     {
         if($id==null){
-            $products = $this->getJsonFromUrl("https://api.bol.com/catalog/v4/search/?q=laptop&offset=0&limit=2&dataoutput=products&apikey=9BD066C2A14643CCB798949B15AFBCC1&format=json");
+            $products = $this->getJsonFromUrl("https://api.bol.com/catalog/v4/search/?q=laptop&offset=0&limit=2&dataoutput=products?format=json");
         }else{
-            $products = $this->getJsonFromUrl("https://api.bol.com/catalog/v4/recommendations/".$id."/?apikey=9BD066C2A14643CCB798949B15AFBCC1&format=json&limit=2");
+            $products = $this->getJsonFromUrl("https://api.bol.com/catalog/v4/recommendations/".$id."/?format=json&limit=2");
         }
+        $recproducts=$this->getRecommendedProducts($products->products[0]->id);
 
-        return view('home.index',["products" => $products->products]);
+        return view('home.index',["products" => $products, "recproducts" => $recproducts]);
+    }
+
+    private function getRecommendedProducts($productid){
+        $url="https://api.bol.com/catalog/v4/recommendations/".$productid."/?format=json&limit=2";
+        return $this->getJsonFromUrl($url);
     }
 
     private function getJsonFromUrl($url){
+        $url=$url."&apikey=9BD066C2A14643CCB798949B15AFBCC1";
         $json = file_get_contents($url);
         $data = json_decode($json);
         return $data;
