@@ -1,0 +1,10 @@
+.productcontainer{
+    width:400px;
+    height: 400px;
+    background-color:#bbb;
+    border-radius:5px;
+    padding:20px;
+    margin:20px;
+    display: inline-block;
+    overflow:hidden;
+}

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Choose your product</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <h1>
@@ -13,7 +13,12 @@
     Click on the product you prefer.
 </h2>
 <p>
-    {{ var_dump($products) }}
+    @foreach($products as $product)
+        <div class="productcontainer">
+            <h3>{{ $product->title }}</h3>
+            <img src="{{ $product->images[4]->url }}" width="400px">
+        </div>
+    @endforeach
 </p>
 </body>
 </html>
