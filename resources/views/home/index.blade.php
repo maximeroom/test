@@ -39,7 +39,7 @@
 
 <script>
     function selectProduct(id){
-        window.location = "/home/"+id;
+        window.location = "/Home/"+id;
     }
 </script>
 </body>

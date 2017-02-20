@@ -16,6 +16,7 @@ class HomeController extends Controller
             //save click
             $click = new Click();
             $click->productid=$id;
+            $click->title=$this->getProductDetails($id)->products[0]->title;
             $click->save();
 
             $products = $this->getJsonFromUrl("https://api.bol.com/catalog/v4/recommendations/".$id."/?format=json&limit=2");
@@ -26,6 +27,11 @@ class HomeController extends Controller
 
     private function getRecommendedProducts($productid){
         $url="https://api.bol.com/catalog/v4/recommendations/".$productid."/?format=json&limit=4";
+        return $this->getJsonFromUrl($url);
+    }
+
+    private function getProductDetails($productid){
+        $url="https://api.bol.com/catalog/v4/products/".$productid."?offers=cheapest&includeAttributes=false&format=json";
         return $this->getJsonFromUrl($url);
     }
 
