@@ -13,7 +13,7 @@
     Click on the product you prefer.
 </h2>
 <p>
-    blabla
+    {{ $products }}
 </p>
 </body>
 </html>
