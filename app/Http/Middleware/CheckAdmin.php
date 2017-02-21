@@ -17,7 +17,7 @@ class CheckAdmin
     public function handle($request, Closure $next)
     {
         if(Auth::check()){
-            If(Auth::user()->Admin){
+            If(Auth::user()->admin){
                 return $next($request);
             }
             return redirect('/forbidden');
