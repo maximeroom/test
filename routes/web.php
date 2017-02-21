@@ -11,9 +11,14 @@
 |
 */
 Route::get('/', function(){
-    return redirect('Home');
+    return redirect('Product');
 });
 
-Route::get('Home/{id?}', 'HomeController@index');
+Route::get('Product/{id?}', 'ProductController@index');
 
 Route::get('Admin', 'AdminController@index');
+Auth::routes();
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');

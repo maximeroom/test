@@ -1,11 +1,6 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Choose your product</title>
-    <link href="/css/style.css" rel="stylesheet" type="text/css">
-</head>
-<body>
+@extends('layouts.app')
+
+@section('content')
 <div class="main">
     <h1>
         Choose a product!
@@ -17,7 +12,7 @@
     @foreach($products as $product)
         <div class="productcontainer" onclick="selectProduct({{ $product->id }})">
             <h3>{{ $product->title }}</h3>
-            <img src="{{ $product->images[4]->url }}" width="400px">
+            <img src="{{ $product->images[4]->url }}" width="360px">
             <p>{!! $product->shortDescription !!}</p>
             <p><center><a href="{{ $product->urls[0]->value }}">Buy this product!</a></center></p>
         </div>
@@ -39,8 +34,7 @@
 
 <script>
     function selectProduct(id){
-        window.location = "/Home/"+id;
+        window.location = "/Product/"+id;
     }
 </script>
-</body>
-</html>
+@endsection
