@@ -19,7 +19,7 @@ class AdminController extends Controller
             ->orderBy('total', 'desc')
             ->get();
 
-        return view('admin.index', ["clicks" => $clicks, "totalcount" => $totalcount, "location" => $location]);
+        return view('admin.index', ["clicks" => $clicks, "totalcount" => $totalcount, "location" => $location, "adminpage" => true]);
 
     }
 }

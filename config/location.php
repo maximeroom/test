@@ -89,9 +89,9 @@ return [
 
     'testing' => [
 
-        'enabled' => false,
+        'enabled' => true,
 
-        'ip' => '66.102.0.0',
+        'ip' => '194.78.35.14',
 
     ],
 
