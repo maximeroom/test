@@ -14,7 +14,12 @@ Route::get('/', function(){
     return redirect('Product');
 });
 
-Route::get('Product/{id?}', 'ProductController@index');
+Route::group(['prefix' => LaravelLocalization::setLocale()], function()
+{
+    /** ADD ALL LOCALIZED ROUTES INSIDE THIS GROUP **/
+    Route::get('Product/{id?}', 'ProductController@index');
+});
+
 
 Route::get('Admin', 'AdminController@index')->middleware('checkadmin');
 Auth::routes();
