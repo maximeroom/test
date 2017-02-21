@@ -169,6 +169,8 @@ return [
         Laravel\Tinker\TinkerServiceProvider::class,
         Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider::class,
         Stevebauman\Location\LocationServiceProvider::class,
+        Barryvdh\TranslationManager\ManagerServiceProvider::class,
+
 
         /*
          * Application Service Providers...
