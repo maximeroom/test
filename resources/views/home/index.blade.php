@@ -3,10 +3,10 @@
 @section('content')
 <div class="main">
     <h1>
-        Choose a product!
+        @lang('products.title')
     </h1>
     <h2>
-        Click on the product you prefer.
+        @lang('products.sub_title')
     </h2>
     <p>
     @foreach($products as $product)
@@ -14,13 +14,13 @@
             <h3>{{ $product->title }}</h3>
             <img src="{{ $product->images[4]->url }}" width="360px">
             <p>{!! $product->shortDescription !!}</p>
-            <p><center><a href="{{ $product->urls[0]->value }}">Buy this product!</a></center></p>
+            <p><center><a href="{{ $product->urls[0]->value }}">@lang("products.buy_product")</a></center></p>
         </div>
     @endforeach
     </p>
 </div>
 <div class="sidepanel">
-    <h1>Related products</h1>
+    <h1>@lang('products.side_title')</h1>
     @foreach($recproducts as $recproduct)
         <div class="miniproductcontainer">
             <h3>{{ $recproduct->title }}</h3>
