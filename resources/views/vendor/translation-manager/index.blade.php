@@ -1,5 +1,7 @@
-<!DOCTYPE html>
-<html>
+@extends('layouts.app')
+
+@section('content')
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -76,7 +78,6 @@
         })
     </script>
 </head>
-<body>
 <div style="width: 80%; margin: auto;">
     <h1>Translation Manager</h1>
     <p>Warning, translations are not visible until they are exported back to the app/lang file, using 'php artisan translation:export' command or publish button.</p>
@@ -177,5 +178,5 @@
     <?php endif; ?>
 </div>
 
-</body>
-</html>
+
+@endsection

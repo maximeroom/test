@@ -17,14 +17,11 @@ class CheckAdmin
     public function handle($request, Closure $next)
     {
         if(Auth::check()){
-            if (strpos($request->getPathInfo(), "/Admin") != -1) {
-                If(Auth::user()->admin){
-                    return $next($request);
-                }
-                return redirect('/forbidden');
-            }else{
+            If(Auth::user()->admin){
                 return $next($request);
             }
+            return redirect('/forbidden');
+
         }
         return redirect('/login?redirectUrl=admin');
     }
