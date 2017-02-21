@@ -44,7 +44,10 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        <li><a href="/Admin">Admin</a></li>
+                        @if (Auth::check() && Auth::user()->admin)
+                            <li><a href="/Admin">Admin</a></li>
+                            <li><a href="/Admin/translations">Translations</a></li>
+                        @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->

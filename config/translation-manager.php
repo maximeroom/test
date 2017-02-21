@@ -11,10 +11,11 @@ return array(
     |
     */
     'route' => [
-        'prefix' => 'translations',
+        'prefix' => 'Admin/translations',
         'middleware' => [
             'web',
             'auth',
+            'checkadmin'
         ],
     ],
 

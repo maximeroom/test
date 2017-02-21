@@ -11,7 +11,7 @@ return [
     |
     */
 
-    'driver' => Stevebauman\Location\Drivers\MaxMind::class,
+    'driver' => Stevebauman\Location\Drivers\IpInfo::class,
 
     /*
     |--------------------------------------------------------------------------
@@ -89,7 +89,7 @@ return [
 
     'testing' => [
 
-        'enabled' => true,
+        'enabled' => false,
 
         'ip' => '66.102.0.0',
 
