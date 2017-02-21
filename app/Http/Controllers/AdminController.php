@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Click;
 use DB;
-use Illuminate\Support\Facades\Auth;
+use Stevebauman\Location\Facades\Location;
+
 class AdminController extends Controller
 {
     public function Index(){
+        $location= Location::get();
         $totalcount=Click::count();
 
         $clicks = DB::table('clicks')
@@ -17,7 +19,7 @@ class AdminController extends Controller
             ->orderBy('total', 'desc')
             ->get();
 
-        return view('admin.index', ["clicks" => $clicks, "totalcount" => $totalcount]);
+        return view('admin.index', ["clicks" => $clicks, "totalcount" => $totalcount, "location" => $location]);
 
     }
 }

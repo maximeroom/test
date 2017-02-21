@@ -28,6 +28,9 @@
             <p>
                 <b>Total clicks: </b>{{ $totalcount }}
             </p>
+            <p>
+                <b>Locatie: </b>{{ $location->cityName }}, {{ $location->regionName }} ({{ $location->countryCode }})
+            </p>
         </div>
     </div>
 </div>
