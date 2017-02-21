@@ -17,7 +17,7 @@ class CheckAdmin
     public function handle($request, Closure $next)
     {
         if(Auth::check()){
-            if ($request->is('admin/*') || $request->is('Admin/*')) {
+            if (strpos($request->getPathInfo(), "/Admin") != -1) {
                 If(Auth::user()->admin){
                     return $next($request);
                 }
