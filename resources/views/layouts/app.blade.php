@@ -51,7 +51,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li class="language_bar_chooser dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                Change language <span class="caret"></span>
+                                {{ LaravelLocalization::getCurrentLocale() }} <span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
