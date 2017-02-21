@@ -9,10 +9,6 @@ use Illuminate\Support\Facades\Auth;
 class AdminController extends Controller
 {
     public function Index(){
-        if(Auth::user())
-        If(Auth::user()->Admin==false){
-            return redirect('/');
-        }
         $totalcount=Click::count();
 
         $clicks = DB::table('clicks')
