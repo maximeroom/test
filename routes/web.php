@@ -13,6 +13,7 @@
 Route::get('/', function(){
     return redirect('Product');
 });
+
 Route::group(
     [
         'prefix' => LaravelLocalization::setLocale(),
@@ -24,10 +25,9 @@ Route::group(
     });
 
 Route::get('Admin', 'AdminController@index')->middleware('checkadmin');
-Auth::routes();
-
 
 Route::get('/home', 'HomeController@index');
 
 Route::get('/forbidden', 'ForbiddenController@index');
 
+Auth::routes();
