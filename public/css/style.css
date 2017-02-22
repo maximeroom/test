@@ -67,3 +67,17 @@ td {
     background: #FAFAFA; /* Lighter grey background */
     text-align: center; /* Center our text */
 }
+#notification{
+    background:#2ca02c;
+    height: 50px;
+    line-height: 50px;
+    color:#fff;
+    padding-left:20px;
+    transition:margin-top .5s;
+}
+.shownnt{
+    margin-top:0px;
+}
+.hiddennt{
+    margin-top:-50px;
+}

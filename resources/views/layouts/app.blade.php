@@ -100,10 +100,15 @@
             </div>
         </nav>
 
+        @if(isset($notification))
+            <div id="notification" class="shownnt">{{ $notification }}</div>
+        @endif
+
         @yield('content')
     </div>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/notification.js') }}"></script>
 </body>
 </html>
